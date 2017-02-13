@@ -1,7 +1,6 @@
-package com.lin.cainiaolives.UtilCode;
+package com.lin.cainiaolives.utilcode;
 
 import android.content.ComponentName;
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;

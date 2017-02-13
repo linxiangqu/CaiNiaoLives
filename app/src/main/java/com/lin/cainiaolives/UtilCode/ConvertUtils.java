@@ -1,4 +1,4 @@
-package com.lin.cainiaolives.UtilCode;
+package com.lin.cainiaolives.utilcode;
 
 import android.annotation.SuppressLint;
 import android.content.res.Resources;

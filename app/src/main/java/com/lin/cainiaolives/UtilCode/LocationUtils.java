@@ -1,4 +1,4 @@
-package com.lin.cainiaolives.UtilCode;
+package com.lin.cainiaolives.utilcode;
 
 import android.content.Context;
 import android.content.Intent;

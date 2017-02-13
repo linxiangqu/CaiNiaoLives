@@ -9,7 +9,7 @@
     tools:context="com.lin.cainiaolives.ui.LoginActivity">
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/login_TIL_username"
+        android:id="@+id/register_TIL_username"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:gravity="top|center_horizontal"
@@ -21,19 +21,18 @@
         app:layout_widthPercent="100%">
 
         <EditText
-            android:id="@+id/edt_login_username"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="@string/username"
+            android:hint="@string/register_username"
             android:singleLine="true" />
 
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/login_TIL_password"
+        android:id="@+id/register_TIL_password"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_below="@+id/login_TIL_username"
+        android:layout_below="@+id/register_TIL_username"
         android:gravity="center_horizontal"
         android:textColorHint="@color/white"
         app:layout_heightPercent="10%"
@@ -42,23 +41,41 @@
         app:layout_widthPercent="100%">
 
         <EditText
-            android:id="@+id/edt_login_password"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="@string/password"
-            android:inputType="textPassword"
+            android:hint="@string/pwd"
+            android:singleLine="true" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/register_TIL_repassword"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_below="@+id/register_TIL_password"
+        android:gravity="center_horizontal"
+        android:textColorHint="@color/white"
+        app:layout_heightPercent="10%"
+        app:layout_paddingLeftPercent="10%"
+        app:layout_paddingRightPercent="10%"
+        app:layout_widthPercent="100%">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/repassword"
             android:singleLine="true" />
 
     </android.support.design.widget.TextInputLayout>
 
     <Button
-        android:id="@+id/btn_login_denglv"
+        android:id="@+id/btn_register_register"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/login_TIL_password"
+        android:layout_below="@+id/register_TIL_repassword"
         android:background="@drawable/bg_login"
-        android:text="@string/login"
+        android:text="@string/register"
         android:textColor="@color/white"
         android:textSize="15sp"
         app:layout_heightPercent="6%"
@@ -67,29 +84,17 @@
         app:layout_marginTopPercent="5%"
         app:layout_widthPercent="100%" />
 
+
     <Button
-        android:id="@+id/btn_mobile_login"
+        android:id="@+id/btn_moblie_register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/btn_login_denglv"
-        android:layout_below="@+id/btn_login_denglv"
+        android:layout_alignEnd="@+id/btn_register_register"
+        android:layout_below="@+id/btn_register_register"
         android:layout_marginTop="15dp"
         android:background="@null"
-        android:text="@string/btn_mobile_login"
+        android:text="@string/btn_moblie_register"
         android:textColor="@color/white"
         android:textSize="13sp" />
-
-    <Button
-        android:id="@+id/btn_new_register"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/btn_mobile_login"
-        android:layout_alignBottom="@+id/btn_mobile_login"
-        android:layout_alignEnd="@+id/btn_login_denglv"
-        android:background="@null"
-        android:text="@string/btn_new_register"
-        android:textColor="@color/white"
-        android:textSize="13sp" />
-
 
 </com.zhy.android.percent.support.PercentRelativeLayout>

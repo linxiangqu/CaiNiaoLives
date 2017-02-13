@@ -1,4 +1,4 @@
-package com.lin.cainiaolives.UtilCode;
+package com.lin.cainiaolives.utilcode;
 
 import android.app.ActivityManager;
 import android.app.AppOpsManager;

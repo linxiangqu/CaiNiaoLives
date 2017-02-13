@@ -1,4 +1,4 @@
-package com.lin.cainiaolives.UtilCode;
+package com.lin.cainiaolives.utilcode;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;

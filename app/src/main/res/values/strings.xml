@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">CaiNiaoLives</string>
+    <string name="password">Password</string>
+    <string name="username">Username</string>
+    <string name="login">登录</string>
+    <string name="btn_mobile_login">手机号登录</string>
+    <string name="btn_new_register">新用户注册</string>
+    <string name="register">注册</string>
+    <string name="btn_moblie_register">手机号注册</string>
+    <string name="repassword">确认密码</string>
+    <string name="pwd">密码（6～16位字符）</string>
+    <string name="register_username">用户名（4～24位数字、字母或下划线）</string>
 </resources>

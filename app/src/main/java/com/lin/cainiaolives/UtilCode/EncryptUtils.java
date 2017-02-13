@@ -1,4 +1,4 @@
-package com.lin.cainiaolives.UtilCode;
+package com.lin.cainiaolives.utilcode;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -13,8 +13,8 @@ import javax.crypto.Cipher;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 
-import static com.lin.cainiaolives.UtilCode.ConvertUtils.bytes2HexString;
-import static com.lin.cainiaolives.UtilCode.ConvertUtils.hexString2Bytes;
+import static com.lin.cainiaolives.utilcode.ConvertUtils.bytes2HexString;
+import static com.lin.cainiaolives.utilcode.ConvertUtils.hexString2Bytes;
 
 /**
  * <pre>

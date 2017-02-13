@@ -1,32 +1,27 @@
 package com.lin.cainiaolives.ui;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
-import android.widget.TextView;
 
 import com.lin.cainiaolives.R;
 import com.lin.cainiaolives.base.BaseActivity;
 
-import butterknife.BindView;
-import butterknife.OnClick;
-
-public class MainActivity extends BaseActivity {
-
-    @BindView(R.id.text)
-    TextView text;
+public class RegisterActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
     protected int getLayoutId() {
-        return R.layout.activity_main;
+        return R.layout.activity_register;
     }
 
     @Override
     protected void initView() {
+
     }
 
     @Override
@@ -39,8 +34,12 @@ public class MainActivity extends BaseActivity {
 
     }
 
-    @OnClick(R.id.text)
-    public void onClick() {
-        LoginActivity.toLoginActivity(MainActivity.this);
+    /**
+     * 启动RegisterActivity
+     *
+     * @param content
+     */
+    public static void toRegisterActivity(Context content) {
+        content.startActivity(new Intent(content, RegisterActivity.class));
     }
 }

@@ -1,11 +1,11 @@
-package com.lin.cainiaolives.UtilCode;
+package com.lin.cainiaolives.utilcode;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static com.lin.cainiaolives.UtilCode.ConstUtils.*;
+import static com.lin.cainiaolives.utilcode.ConstUtils.*;
 
 /**
  * <pre>
