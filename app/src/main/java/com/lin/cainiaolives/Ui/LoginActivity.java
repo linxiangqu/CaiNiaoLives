@@ -2,12 +2,20 @@ package com.lin.cainiaolives.Ui;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.Button;
 
+import com.lin.cainiaolives.ActivityCollector;
 import com.lin.cainiaolives.R;
 
+import butterknife.BindView;
+import butterknife.OnClick;
+
 public class LoginActivity extends BaseActivity {
+
+    private static final String TAG = LoginActivity.class.getSimpleName();
+    @BindView(R.id.button)
+    Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,5 +49,10 @@ public class LoginActivity extends BaseActivity {
      */
     public static void toLoginActivity(Context content) {
         content.startActivity(new Intent(content, LoginActivity.class));
+    }
+
+    @OnClick(R.id.button)
+    public void onClick() {
+        ActivityCollector.finishAll();
     }
 }
