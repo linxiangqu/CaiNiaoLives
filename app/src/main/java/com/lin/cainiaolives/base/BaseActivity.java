@@ -6,11 +6,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import com.lin.cainiaolives.ActivityCollector;
+import com.lin.cainiaolives.http.APIFactory;
+import com.zhy.autolayout.AutoLayoutActivity;
 
 import butterknife.ButterKnife;
 
 
-public abstract class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends AutoLayoutActivity {
+    public APIFactory retrofitUtil = (APIFactory) APIFactory.getInstance();
     private static final String TAG = BaseActivity.class.getSimpleName();
 
     @Override

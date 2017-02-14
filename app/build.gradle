@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.jakewharton.butterknife'
+//apply plugin: 'org.greenrobot.greendao'
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
@@ -26,6 +27,7 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:2.2.3'
         classpath 'com.jakewharton:butterknife-gradle-plugin:8.5.1'
+//        classpath 'org.greenrobot:greendao-gradle-plugin:3.2.1'
     }
 }
 
@@ -38,15 +40,24 @@ dependencies {
     compile 'com.android.support:design:25.1.0'
     testCompile 'junit:junit:4.12'
     //百分比布局
-    compile 'com.zhy:percent-support-extends:1.1.1'
+    compile 'com.zhy:autolayout:1.4.5'
     //黄油刀Butterknife
     compile 'com.jakewharton:butterknife:8.5.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+    //retrofit
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
     compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+    //Gson数据解析
     compile 'com.google.code.gson:gson:2.8.0'
     compile 'com.squareup.okhttp3:logging-interceptor:3.6.0'
-    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
-    compile 'io.reactivex.rxjava2:rxjava:2.x.y'
+    //rxjava
+    compile 'io.reactivex:rxandroid:1.2.1'
+    compile 'io.reactivex:rxjava:1.1.6'
+    //事件传递
+    compile 'org.greenrobot:eventbus:3.0.0'
+    //按钮响应
+    compile 'com.jakewharton.rxbinding:rxbinding:1.0.0'
+    //数据库
+//    compile 'org.greenrobot:greendao:3.2.0'
 }
