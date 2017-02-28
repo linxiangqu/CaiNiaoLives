@@ -9,11 +9,14 @@ import android.widget.EditText;
 
 import com.lin.cainiaolives.R;
 import com.lin.cainiaolives.base.BaseActivity;
+import com.lin.cainiaolives.ui.login.presenter.ILoginPresenter;
+import com.lin.cainiaolives.ui.login.presenter.ILoginPresenterImpl;
+import com.lin.cainiaolives.ui.login.view.ILoginView;
 
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class LoginActivity extends BaseActivity {
+public class LoginActivity extends BaseActivity implements ILoginView {
 
     private static final String TAG = LoginActivity.class.getSimpleName();
     @BindView(R.id.edt_login_username)
@@ -26,11 +29,13 @@ public class LoginActivity extends BaseActivity {
     Button btnMobileLogin;
     @BindView(R.id.btn_new_register)
     Button btnNewRegister;
+    private ILoginPresenter iLoginPresenter;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        iLoginPresenter = new ILoginPresenterImpl(this, retrofitUtil, this);
     }
 
     @Override
@@ -66,6 +71,7 @@ public class LoginActivity extends BaseActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_login_denglv:
+                iLoginPresenter.login(edtLoginUsername.getText().toString().trim(), edtLoginPassword.getText().toString().trim());
                 break;
             case R.id.btn_mobile_login:
                 break;
@@ -73,5 +79,10 @@ public class LoginActivity extends BaseActivity {
                 RegisterActivity.toRegisterActivity(this);
                 break;
         }
+    }
+
+    @Override
+    public void loginSuccess() {
+        RegisterActivity.toRegisterActivity(this);
     }
 }

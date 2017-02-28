@@ -1,6 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.jakewharton.butterknife'
-//apply plugin: 'org.greenrobot.greendao'
+apply plugin: 'org.greenrobot.greendao'
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
@@ -20,14 +20,28 @@ android {
     }
 }
 
+allprojects {
+    repositories {
+        maven { url "https://jitpack.io" }
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+    }
+}
+
 buildscript {
     repositories {
-        mavenCentral()
+        // maven库
+        def cn = "http://maven.aliyun.com/nexus/content/groups/public/"
+        def abroad = "http://central.maven.org/maven2/"
+        // 先从url中下载jar若没有找到，则在artifactUrls中寻找
+        maven {
+            url cn
+            artifactUrls abroad
+        }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.2.3'
         classpath 'com.jakewharton:butterknife-gradle-plugin:8.5.1'
-//        classpath 'org.greenrobot:greendao-gradle-plugin:3.2.1'
+        classpath 'org.greenrobot:greendao-gradle-plugin:3.2.1'
     }
 }
 
@@ -59,5 +73,8 @@ dependencies {
     //按钮响应
     compile 'com.jakewharton.rxbinding:rxbinding:1.0.0'
     //数据库
-//    compile 'org.greenrobot:greendao:3.2.0'
+    compile 'org.greenrobot:greendao:3.2.0'
+    //BaseRecyclerViewAdapterHelper
+    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:v1.9.7'
 }
+

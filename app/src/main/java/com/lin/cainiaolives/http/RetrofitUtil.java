@@ -30,7 +30,8 @@ import rx.schedulers.Schedulers;
 
 public class RetrofitUtil {
     //服务器地址
-    private static final String BASE_URL = "http://symall.sunruncn.com:8787";
+//    private static final String BASE_URL = "http://symall.sunruncn.com:8787";
+    private static final String BASE_URL = "http://live.demo.cniao5.com/Api/";
     //API接口
     public RetrofitApi retrofitApi;
 

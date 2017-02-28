@@ -10,4 +10,7 @@
     <string name="repassword">确认密码</string>
     <string name="pwd">密码（6～16位字符）</string>
     <string name="register_username">用户名（4～24位数字、字母或下划线）</string>
+    <string name="oneName">ONE</string>
+    <string name="twoName">TWO</string>
+    <string name="threeName">THREE</string>
 </resources>
