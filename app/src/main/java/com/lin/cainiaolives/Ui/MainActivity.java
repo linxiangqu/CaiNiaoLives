@@ -44,14 +44,14 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void initView() {
         mTabhost.setup(this, getSupportFragmentManager(), R.id.realtabcontent);
-        Tab one = new Tab(R.string.oneName, FragmentUser.class);
-        Tab two = new Tab(R.string.twoName, FragmentHome.class);
+        Tab one = new Tab(R.string.oneName, FragmentHome.class);
+        Tab two = new Tab(R.string.twoName, FragmentUser.class);
         Tab three = new Tab(R.string.threeName, FragmentSetting.class);
         mTabs.add(one);
         mTabs.add(two);
         mTabs.add(three);
         for (Tab tab : mTabs) {
-            mTabhost.addTab(mTabhost.newTabSpec(tab.getTabName() + "").setIndicator(getTabItemView(tab)), tab.getFragment(), null);
+            mTabhost.addTab(mTabhost.newTabSpec(getString(tab.getTabName())).setIndicator(getTabItemView(tab)), tab.getFragment(), null);
         }
         mTabhost.getTabWidget().setDividerDrawable(null);
         mTabhost.setCurrentTab(0);
