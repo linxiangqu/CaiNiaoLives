@@ -1,4 +1,4 @@
-package com.lin.cainiaolives.ui;
+package com.lin.cainiaolives.ui.main;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentTabHost;

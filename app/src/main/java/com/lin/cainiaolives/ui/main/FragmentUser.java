@@ -1,5 +1,6 @@
 package com.lin.cainiaolives.ui.main;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -9,9 +10,11 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.lin.cainiaolives.R;
+import com.lin.cainiaolives.ui.CKActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 
 public class FragmentUser extends Fragment {
@@ -44,5 +47,10 @@ public class FragmentUser extends Fragment {
             mText.setText(name);
         }
         return mView;
+    }
+
+    @OnClick(R.id.text)
+    public void onClick() {
+        startActivity(new Intent(getActivity(), CKActivity.class));
     }
 }

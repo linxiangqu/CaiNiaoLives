@@ -5,6 +5,10 @@ import com.lin.cainiaolives.ui.login.bean.Login;
 import com.lin.cainiaolives.ui.login.bean.Login_CS;
 import com.lin.cainiaolives.ui.login.bean.MobileLogin;
 import com.lin.cainiaolives.ui.login.bean.MobileLogin_CS;
+import com.lin.cainiaolives.ui.register.bean.MobileRegister;
+import com.lin.cainiaolives.ui.register.bean.MobileRegister_CS;
+import com.lin.cainiaolives.ui.register.bean.Register;
+import com.lin.cainiaolives.ui.register.bean.Register_CS;
 
 import rx.Observable;
 import rx.Subscriber;
@@ -26,11 +30,6 @@ public class APIFactory extends RetrofitUtil {
         return apiFactory;
     }
 
-//    public void getAppIndexGet(Subscriber<AppIndex> subscriber, int param) {
-//        Observable<AppIndex> observable = retrofitApi.getAppIndex(param);
-//        toSubscribe(observable, subscriber);
-//    }
-
     //用户名登录
     public void getLogin(Subscriber<Login> subscriber, Login_CS login_cs) {
         Observable<Login> observable = retrofitApi.login(login_cs);
@@ -40,6 +39,18 @@ public class APIFactory extends RetrofitUtil {
     //手机登录
     public void getMobileLogin(Subscriber<MobileLogin> subscriber, MobileLogin_CS mobileLogin_cs) {
         Observable<MobileLogin> observable = retrofitApi.mobileLogin(mobileLogin_cs);
+        toSubscribe(observable, subscriber);
+    }
+
+    //用户名注册
+    public void getRegister(Subscriber<Register> subscriber, Register_CS register_cs) {
+        Observable<Register> observable = retrofitApi.register(register_cs);
+        toSubscribe(observable, subscriber);
+    }
+
+    //手机号注册
+    public void getMobileRegister(Subscriber<MobileRegister> subscriber, MobileRegister_CS mobileRegister_cs) {
+        Observable<MobileRegister> observable = retrofitApi.mobileRegister(mobileRegister_cs);
         toSubscribe(observable, subscriber);
     }
 }

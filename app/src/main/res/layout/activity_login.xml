@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_login"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@mipmap/bg_dark"
-    tools:context="com.lin.cainiaolives.ui.LoginActivity">
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/activity_login"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@mipmap/bg_dark"
+                tools:context="com.lin.cainiaolives.ui.login.LoginActivity">
+
+    <Button
+        android:id="@+id/btn_login_mobilecode"
+        android:layout_width="wrap_content"
+        android:layout_height="80px"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/login_TIL_username"
+        android:layout_marginTop="10px"
+        android:background="@drawable/bg_login"
+        android:text="获取验证码"
+        android:textColor="@color/white"
+        android:visibility="gone"/>
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/login_TIL_username"
@@ -19,8 +31,8 @@
             android:id="@+id/edt_login_username"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="@string/username"
-            android:singleLine="true" />
+            android:hint="@string/register_username"
+            android:singleLine="true"/>
 
     </android.support.design.widget.TextInputLayout>
 
@@ -36,14 +48,15 @@
             android:id="@+id/edt_login_password"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="@string/password"
+            android:hint="@string/pwd"
             android:inputType="textPassword"
-            android:singleLine="true" />
+            android:maxLength="8"
+            android:singleLine="true"/>
 
     </android.support.design.widget.TextInputLayout>
 
     <Button
-        android:id="@+id/btn_login_denglv"
+        android:id="@+id/btn_login"
         android:layout_width="match_parent"
         android:layout_height="90px"
         android:layout_alignParentStart="true"
@@ -52,19 +65,19 @@
         android:background="@drawable/bg_login"
         android:text="@string/login"
         android:textColor="@color/white"
-        android:textSize="40px" />
+        android:textSize="40px"/>
 
     <Button
         android:id="@+id/btn_mobile_login"
         android:layout_width="200px"
         android:layout_height="90px"
-        android:layout_alignStart="@+id/btn_login_denglv"
-        android:layout_below="@+id/btn_login_denglv"
+        android:layout_alignStart="@+id/btn_login"
+        android:layout_below="@+id/btn_login"
         android:layout_marginTop="30px"
         android:background="@null"
         android:text="@string/btn_mobile_login"
         android:textColor="@color/white"
-        android:textSize="30px" />
+        android:textSize="30px"/>
 
     <Button
         android:id="@+id/btn_new_register"
@@ -72,12 +85,12 @@
         android:layout_height="90px"
         android:layout_alignBaseline="@+id/btn_mobile_login"
         android:layout_alignBottom="@+id/btn_mobile_login"
-        android:layout_alignEnd="@+id/btn_login_denglv"
+        android:layout_alignEnd="@+id/btn_login"
         android:layout_marginTop="30px"
         android:background="@null"
         android:text="@string/btn_new_register"
         android:textColor="@color/white"
-        android:textSize="30px" />
+        android:textSize="30px"/>
 
 
 </RelativeLayout>
