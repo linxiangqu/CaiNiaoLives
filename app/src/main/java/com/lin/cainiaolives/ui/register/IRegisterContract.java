@@ -9,6 +9,10 @@ public interface IRegisterContract {
         void RegisterSuccess();
 
         void RegisterError(String msg);
+
+        void SetButtonEnable(boolean enable);
+
+        void SetButtonText(String msg);
     }
 
     interface IRegisterPresenter {
@@ -16,6 +20,6 @@ public interface IRegisterContract {
 
         void MobileRegister(String mobilephone, String verificationcode);
 
-        int GetVerificationCode();
+        boolean GetVerificationCode(String phoneNumber);
     }
 }

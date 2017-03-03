@@ -15,7 +15,7 @@
         android:layout_below="@+id/login_TIL_username"
         android:layout_marginTop="10px"
         android:background="@drawable/bg_login"
-        android:text="获取验证码"
+        android:text="@string/VerificationCode"
         android:textColor="@color/white"
         android:visibility="gone"/>
 

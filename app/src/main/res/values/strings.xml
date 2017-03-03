@@ -13,4 +13,6 @@
     <string name="oneName">ONE</string>
     <string name="twoName">TWO</string>
     <string name="threeName">THREE</string>
+    <string name="VerificationCode">获取验证码</string>
+    <string name="back_login">返回登录</string>
 </resources>

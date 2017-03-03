@@ -9,6 +9,10 @@ public interface ILoginContract {
         void LoginSuccess();
 
         void LoginError(String msg);
+
+        void SetButtonEnable(boolean enable);
+
+        void SetButtonText(String msg);
     }
 
     interface ILoginPresenter {
@@ -16,6 +20,6 @@ public interface ILoginContract {
 
         void Login_Mobile(String mobilephone, String verificationcode);
 
-        int GetVerificationCode();
+        boolean GetVerificationCode(String phoneNumber);
     }
 }

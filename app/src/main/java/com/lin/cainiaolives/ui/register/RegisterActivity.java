@@ -36,6 +36,8 @@ public class RegisterActivity extends BaseActivity implements IRegisterContract.
     EditText mEdtRegisterPassword;
     @BindView(R.id.edt_register_repeatpassword)
     EditText mEdtRegisterRepeatpassword;
+    @BindView(R.id.btn_back_login)
+    Button mBtnBackLogin;
 
     private boolean isMobileRegister = false;
     private IRegisterContract.IRegisterPresenter mIRegisterPresenter;
@@ -86,11 +88,22 @@ public class RegisterActivity extends BaseActivity implements IRegisterContract.
         ToastUtils.showShortToast(msg);
     }
 
-    @OnClick({R.id.btn_register_yzm, R.id.btn_register_register, R.id.btn_moblie_register})
+    @Override
+    public void SetButtonEnable(boolean enable) {
+        mBtnRegisterYzm.setEnabled(enable);
+    }
+
+    @Override
+    public void SetButtonText(String msg) {
+        mBtnRegisterYzm.setText(msg);
+    }
+
+    @OnClick({R.id.btn_register_yzm, R.id.btn_register_register, R.id.btn_moblie_register, R.id.btn_back_login})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_register_yzm:
-                mIRegisterPresenter.GetVerificationCode();
+                String phoneNumber = mEdtRegisterPassword.getText().toString().trim();
+                mIRegisterPresenter.GetVerificationCode(phoneNumber);
                 break;
             case R.id.btn_register_register:
                 String password = mEdtRegisterPassword.getText().toString().trim();
@@ -108,6 +121,12 @@ public class RegisterActivity extends BaseActivity implements IRegisterContract.
                 else
                     MobileRegisterViewInit();
                 break;
+            case R.id.btn_back_login:
+                finish();
+                overridePendingTransition(R.anim.activity_in, R.anim.activity_out);
+                break;
+            default:
+                break;
         }
     }
 
@@ -122,6 +141,7 @@ public class RegisterActivity extends BaseActivity implements IRegisterContract.
         mRegisterTILRepassword.setHint("请输入验证码");
         mBtnMoblieRegister.setText("用户名注册");
         mEdtRegisterPassword.setInputType(InputType.TYPE_CLASS_PHONE);
+        mEdtRegisterRepeatpassword.setInputType(InputType.TYPE_CLASS_NUMBER);
     }
 
     private void NormalRegisterViewInit() {
@@ -135,5 +155,6 @@ public class RegisterActivity extends BaseActivity implements IRegisterContract.
         mRegisterTILRepassword.setHint(getString(R.string.repassword));
         mBtnMoblieRegister.setText("手机号注册");
         mEdtRegisterPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+        mEdtRegisterRepeatpassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
     }
 }

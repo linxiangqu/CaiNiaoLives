@@ -84,11 +84,22 @@ public class LoginActivity extends BaseActivity implements ILoginContract.ILogin
         ToastUtils.showShortToast(msg);
     }
 
+    @Override
+    public void SetButtonEnable(boolean enable) {
+        mBtnLoginMobilecode.setEnabled(enable);
+    }
+
+    @Override
+    public void SetButtonText(String msg) {
+        mBtnLoginMobilecode.setText(msg);
+    }
+
     @OnClick({R.id.btn_login_mobilecode, R.id.btn_login, R.id.btn_mobile_login, R.id.btn_new_register})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_login_mobilecode:
-                mILoginPresenter.GetVerificationCode();
+                String phoneNumber = mEdtLoginUsername.getText().toString().trim();
+                mILoginPresenter.GetVerificationCode(phoneNumber);
                 break;
             case R.id.btn_login:
                 String usename = mEdtLoginUsername.getText().toString().trim();
@@ -106,6 +117,9 @@ public class LoginActivity extends BaseActivity implements ILoginContract.ILogin
                 break;
             case R.id.btn_new_register:
                 RegisterActivity.toRegisterActivity(this);
+                overridePendingTransition(R.anim.activity_in, R.anim.activity_out);
+                break;
+            default:
                 break;
         }
     }

@@ -2,6 +2,7 @@ package com.lin.cainiaolives.ui.login;
 
 import android.content.Context;
 
+import com.lin.cainiaolives.R;
 import com.lin.cainiaolives.http.APIFactory;
 import com.lin.cainiaolives.http.ProgressSubscriber;
 import com.lin.cainiaolives.http.SubscriberOnNextListener;
@@ -9,8 +10,19 @@ import com.lin.cainiaolives.ui.login.bean.Login;
 import com.lin.cainiaolives.ui.login.bean.Login_CS;
 import com.lin.cainiaolives.ui.login.bean.MobileLogin;
 import com.lin.cainiaolives.ui.login.bean.MobileLogin_CS;
+import com.lin.cainiaolives.ui.login.bean.VerifyCode;
+import com.lin.cainiaolives.ui.login.bean.VerifyCode_CS;
 import com.lin.cainiaolives.utilcode.RegexUtils;
 import com.lin.cainiaolives.utilcode.ToastUtils;
+
+import java.util.concurrent.TimeUnit;
+
+import rx.Observable;
+import rx.Observer;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Action0;
+import rx.functions.Func1;
+import rx.schedulers.Schedulers;
 
 /**
  * Created by Administrator on 2017/3/1.
@@ -87,8 +99,64 @@ public class LoginPresenterImpl implements ILoginContract.ILoginPresenter {
     }
 
     @Override
-    public int GetVerificationCode() {
+    public boolean GetVerificationCode(final String phoneNumber) {
+        if (!RegexUtils.isMobileExact(phoneNumber)) {
+            mILoginView.LoginError("请输入正确的手机号码");
+            return false;
+        }
+        final int time = 60;
+        Observable.interval(0, 1, TimeUnit.SECONDS)
+                .take(61)
+                .map(new Func1<Long, Long>() {
+                    @Override
+                    public Long call(Long aLong) {
+                        return time - aLong;
+                    }
+                })
+                .subscribeOn(Schedulers.computation())
+                .doOnSubscribe(new Action0() {
+                    @Override
+                    public void call() {
+                        VerifyCode_CS verifyCode_cs = new VerifyCode_CS();
+                        verifyCode_cs.setAction("verifyCode");
+                        verifyCode_cs.setMobile(phoneNumber);
+                        retrofitUtil.getVerifyCode(new ProgressSubscriber<VerifyCode>(new SubscriberOnNextListener<VerifyCode>() {
+                            @Override
+                            public void onNext(VerifyCode verifyCode) {
+                                ToastUtils.showShortToast(verifyCode.getMsg());
+                            }
 
-        return 1111;
+                            @Override
+                            public void onError(int code, String message) {
+                                mILoginView.LoginError(message);
+                            }
+                        }, mContext, false), verifyCode_cs);
+                    }
+                })
+                .observeOn(AndroidSchedulers.mainThread())
+                .doOnSubscribe(new Action0() {
+                    @Override
+                    public void call() {
+                        mILoginView.SetButtonEnable(false);
+                    }
+                })
+                .subscribe(new Observer<Long>() {
+                    @Override
+                    public void onCompleted() {
+                        mILoginView.SetButtonEnable(true);
+                        mILoginView.SetButtonText(mContext.getResources().getString(R.string.VerificationCode));
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        mILoginView.LoginError(e.toString());
+                    }
+
+                    @Override
+                    public void onNext(Long aLong) {
+                        mILoginView.SetButtonText(aLong.toString() + "秒");
+                    }
+                });
+        return false;
     }
 }

@@ -2,7 +2,6 @@ package com.lin.cainiaolives.base;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import com.lin.cainiaolives.ActivityCollector;
@@ -28,12 +27,13 @@ public abstract class BaseActivity extends AutoLayoutActivity {
         initListener();
     }
 
+    //获取布局
     protected abstract int getLayoutId();
-
+    //初始化布局控件
     protected abstract void initView();
-
+    //初始化数据
     protected abstract void initData();
-
+    //初始化监听
     protected abstract void initListener();
 
     @Override

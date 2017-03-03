@@ -5,6 +5,8 @@ import com.lin.cainiaolives.ui.login.bean.Login;
 import com.lin.cainiaolives.ui.login.bean.Login_CS;
 import com.lin.cainiaolives.ui.login.bean.MobileLogin;
 import com.lin.cainiaolives.ui.login.bean.MobileLogin_CS;
+import com.lin.cainiaolives.ui.login.bean.VerifyCode;
+import com.lin.cainiaolives.ui.login.bean.VerifyCode_CS;
 import com.lin.cainiaolives.ui.register.bean.MobileRegister;
 import com.lin.cainiaolives.ui.register.bean.MobileRegister_CS;
 import com.lin.cainiaolives.ui.register.bean.Register;
@@ -51,6 +53,12 @@ public class APIFactory extends RetrofitUtil {
     //手机号注册
     public void getMobileRegister(Subscriber<MobileRegister> subscriber, MobileRegister_CS mobileRegister_cs) {
         Observable<MobileRegister> observable = retrofitApi.mobileRegister(mobileRegister_cs);
+        toSubscribe(observable, subscriber);
+    }
+
+    //获取验证码
+    public void getVerifyCode(Subscriber<VerifyCode> subscriber, VerifyCode_CS verifyCode_cs) {
+        Observable<VerifyCode> observable = retrofitApi.verifyCode(verifyCode_cs);
         toSubscribe(observable, subscriber);
     }
 }

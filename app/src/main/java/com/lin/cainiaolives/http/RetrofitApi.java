@@ -5,6 +5,8 @@ import com.lin.cainiaolives.ui.login.bean.Login;
 import com.lin.cainiaolives.ui.login.bean.Login_CS;
 import com.lin.cainiaolives.ui.login.bean.MobileLogin;
 import com.lin.cainiaolives.ui.login.bean.MobileLogin_CS;
+import com.lin.cainiaolives.ui.login.bean.VerifyCode;
+import com.lin.cainiaolives.ui.login.bean.VerifyCode_CS;
 import com.lin.cainiaolives.ui.register.bean.MobileRegister;
 import com.lin.cainiaolives.ui.register.bean.MobileRegister_CS;
 import com.lin.cainiaolives.ui.register.bean.Register;
@@ -42,4 +44,9 @@ public interface RetrofitApi {
     @Headers("Content-Type: application/json")
     @POST("User")
     Observable<MobileRegister> mobileRegister(@Body MobileRegister_CS mobileRegister_cs);
+
+    //获取验证码
+    @Headers("ontent-Type: application/json")
+    @POST("User")
+    Observable<VerifyCode> verifyCode(@Body VerifyCode_CS verifyCode_cs);
 }
